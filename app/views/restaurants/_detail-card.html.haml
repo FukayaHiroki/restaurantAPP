@@ -1,0 +1,11 @@
+.card.w-75.p-2.mx-auto
+  .card-body
+    %h2.card-title.text-center 
+      -# = @restaurant.name
+    = image_tag "kitchen-731351_1280.jpg", class: "card-img-top"
+    -# %p.card-text ジャンル：#{@restaurant.detail.genre.name}
+    -# %p.card-text オススメシーン: #{@restaurant.detail.scene_id}
+    -# %p.card-text ドレスコード: #{@restaurant.detail.atmosphere_id}
+    -# %p.card-text オススメの文章をかく#{@restaurant.content}
+    -# %a{:href => "#!"} リンク→#{@restaurant.tabelog}
+    -# %a{:href => "#!"} リンク→#{@restaurant.shopurl}
