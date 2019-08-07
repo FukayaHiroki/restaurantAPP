@@ -10,8 +10,9 @@
       %li.nav-item
         = link_to new_user_session_path, class: "nav-link" do 
           login
+    - if user_signed_in?
       %li.nav-item
-        = link_to user_path(current_user), class: "nav-link" do 
+        = link_to restaurants_path, method: :POST, class: "nav-link" do 
           mypage
     %form.form-inline.my-2.my-lg-0
       %input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "text"}/
