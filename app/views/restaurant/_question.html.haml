@@ -1,0 +1,39 @@
+.container.p-3
+  %h3.p-2 全ての質問に回答したのち、送信ボタンを押してください
+  .form
+    .form-group
+      .container.p-4
+        %h4 好きな料理のジャンルを選んでください
+        .custom-control.custom-radio.form-check
+          %input#customRadio1.form-check-input{:genre => 1, :type => "radio"}/
+          %label.form-check-label{:for => "customRadio1"} フレンチ
+        .custom-control.custom-radio.form-check
+          %input#customRadio2.form-check-input{:genre => 2, :type => "radio"}/
+          %label.form-check-label{:for => "customRadio2"} イタリアン
+        .custom-control.custom-radio.form-check
+          %input#customRadio3.form-check-input{:genre => 3, :type => "radio"}/
+          %label.form-check-label{:for => "customRadio3"} 和食
+        .custom-control.custom-radio.form-check
+          %input#customRadio4.form-check-input{:genre => 4, :type => "radio"}/
+          %label.form-check-label{:for => "customRadio4"} 寿司
+    .form-group
+      .container.p-4
+        %h4 一緒に行く人はどの様な関係ですか？
+        .custom-control.custom-radio.form-check
+          %input#customRadio5.form-check-input{:name => "question2", :type => "radio"}/
+          %label.form-check-label{:for => "customRadio5"} 恋人や家族など大切な人（デートで使えそうなお店）
+        .custom-control.custom-radio.form-check
+          %input#customRadio6.form-check-input{:name => "question2", :type => "radio"}/
+          %label.form-check-label{:for => "customRadio6"} 友人や会社の人など
+    .form-group
+      .container.p-4
+        %h4 どの様な雰囲気のお店を探していますか？
+        .custom-control.custom-radio.form-check
+          %input#customRadio7.form-check-input{:name => "question3", :type => "radio"}/
+          %label.form-check-label{:for => "customRadio7"} カジュアルな雰囲気
+        .custom-control.custom-radio.form-check
+          %input#customRadio8.form-check-input{:name => "question3", :type => "radio"}/
+          %label.form-check-label{:for => "customRadio8"} ドレスコードがしっかりしている
+    %button.btn.btn-dark{type: "submit"} 
+      -# = link_to list_show_path(@detail) do
+        回答を送信して、レストランを見る
