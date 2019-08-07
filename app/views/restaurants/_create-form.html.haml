@@ -1,0 +1,15 @@
+= form_with url: restaurants_path, method: :POST, model: @restaurant do |f|
+  .form-group
+    %label 名前
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    %label 食べログ
+    = f.text_field :tabelog, class: 'form-control'
+  .form-group
+    %label ショップURL
+    = f.text_field :shopurl, class: 'form-control'
+  .form-group
+    %label 説明
+    = f.text_field :content, class: 'form-control'
+  .actions
+    = f.submit "登録する", class: 'btn-dark'

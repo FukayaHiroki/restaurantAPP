@@ -5,14 +5,14 @@
   #navbarSupportedContent.collapse.navbar-collapse
     %ul.navbar-nav.mr-auto
       %li.nav-item
-        = link_to destroy_user_session_path, method: :DELETE, class: "nav-link" do 
+        = link_to destroy_user_session_path, class: "nav-link" do 
           logout
       %li.nav-item
         = link_to new_user_session_path, class: "nav-link" do 
           login
     - if user_signed_in?
       %li.nav-item
-        = link_to restaurants_path, method: :POST, class: "nav-link" do 
+        = link_to new_restaurant_path, class: "nav-link" do 
           mypage
     %form.form-inline.my-2.my-lg-0
       %input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "text"}/
