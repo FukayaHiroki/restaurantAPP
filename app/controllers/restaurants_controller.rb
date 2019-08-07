@@ -13,10 +13,11 @@ class RestaurantsController < ApplicationController
 
   def new
     @restaurant = Restaurant.new
+    @restaurant.images.build
   end
 
   private
   def restaurant_params
-    params.require(:restaurant).permit(:name, :tabelog, :shopurl, :content)
+    params.require(:restaurant).permit(:name, :tabelog, :shopurl, :content,images_attributes: [:url])
   end
 end

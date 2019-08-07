@@ -11,5 +11,13 @@
   .form-group
     %label 説明
     = f.text_field :content, class: 'form-control'
+  .form-group
+    %label 画像
+    = f.fields_for :images, @restaurant.images do |image|
+      = image.label :url, for: "upload-image" do
+        .sell_upload__area
+          = image.file_field :url, type: "file", id: "upload-image", class: "upload-image"
+      -# = image.file_field :url, class: 'form-control' 
+      -# = image.hidden_field :id, value: image.object.id 
   .actions
     = f.submit "登録する", class: 'btn-dark'
