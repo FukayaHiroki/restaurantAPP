@@ -4,14 +4,15 @@
     %span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse
     %ul.navbar-nav.mr-auto
-      %li.nav-item.active
-        %a.nav-link{:href => "#"}
-          Home
-          %span.sr-only (current)
       %li.nav-item
-        %a.nav-link{:href => "#"} Link
+        = link_to destroy_user_session_path, method: :DELETE, class: "nav-link" do 
+          logout
       %li.nav-item
-        %a.nav-link.disabled{:href => "#"} Disabled
+        = link_to new_user_session_path, class: "nav-link" do 
+          login
+      %li.nav-item
+        = link_to user_path(current_user), class: "nav-link" do 
+          mypage
     %form.form-inline.my-2.my-lg-0
       %input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "text"}/
       %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} Search
