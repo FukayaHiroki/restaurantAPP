@@ -1,7 +1,6 @@
 class RestaurantsController < ApplicationController
+  before_action :set_restaurant, only: [:index]
   def index
-    # @restaurants = Restaurant.order("RAND()").limit(3).includes(:image)
-    @restaurant = Restaurant.find_by(id: 1)
   end
 
   def show
@@ -20,5 +19,9 @@ class RestaurantsController < ApplicationController
   private
   def restaurant_params
     params.require(:restaurant).permit(:name, :tabelog, :shopurl, :content,images_attributes: [:url])
+  end
+
+  def set_restaurant
+    @restaurants = Restaurant.all
   end
 end
