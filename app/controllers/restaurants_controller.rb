@@ -1,6 +1,7 @@
 class RestaurantsController < ApplicationController
   def index
-    
+    # @restaurants = Restaurant.order("RAND()").limit(3).includes(:image)
+    @restaurant = Restaurant.find_by(id: 1)
   end
 
   def show
