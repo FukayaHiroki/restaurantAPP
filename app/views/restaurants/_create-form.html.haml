@@ -22,7 +22,12 @@
   .form-group
     %label ジャンル
     = f.fields_for :detail do |detail|
-      = detail.label :genre 
+      - detail.label :genre 
       = detail.collection_select :genre, Genre.all, :id, :name, prompt: "--", class: "form-control"
+  .form-group
+    %label 利用シーン
+    = f.fields_for :detail do |detail|
+      - detail.label :scene 
+      = detail.collection_select :scene, Scene.all, :id, :name, prompt: "--", class: "form-control"
   .actions
     = f.submit "登録する", class: 'btn-dark'
