@@ -1,22 +1,21 @@
+%h2.text-center あなたにオススメのレストラン
 .card-group
-  .card
-    .card-body
-      = image_tag "restaurant-449952_1280.jpg", class: "card-img-top", style: "heigth: 10rem"
-      %h4.card-title Card title
-      %p.card-text This card has supporting text below as a natural lead-in to additional content.
-      %a.card-link{:href => "#!"} Card link
-      %a.card-link{:href => "#!"} Another link
-  .card
-    .card-body
-      = image_tag "asian-2970211_1280.jpg", class: "card-img-top", style: "heigth: 10rem"
-      %h4.card-title Card title
-      %p.card-text This card has supporting text below as a natural lead-in to additional
-      %a.card-link{:href => "#!"} Card link
-      %a.card-link{:href => "#!"} Another link
-  .card
-    .card-body
-      = image_tag "kitchen-731351_1280.jpg", class: "card-img-top", style: "heigth: 10rem"
-      %h4.card-title Card title
-      %p.card-text This card has supporting text below as a natural lead-in to additional
-      %a.card-link{:href => "#!"} Card link
-      %a.card-link{:href => "#!"} Another link
+  - @restaurants.order("RAND()").limit(3).each do |restaurant|
+    .card
+      .card-body
+        = image_tag "restaurant-449952_1280.jpg", class: "card-img-top", style: "heigth: 10rem"
+        %h4.card-title #{restaurant.name}
+        %p.card-text #{restaurant.content}
+        %a.card-link{:href => "#{restaurant.shopurl}"} 店舗
+        %a.card-link{:href => "#{restaurant.tabelog}"} 食べログ
+        
+%h2.text-center 最新の投稿
+.card-group
+  - @restaurants.order(created_at: :desc).limit(3).each do |restaurant_new|
+    .card
+      .card-body
+        = image_tag "restaurant-449952_1280.jpg", class: "card-img-top", style: "heigth: 10rem"
+        %h4.card-title #{restaurant_new.name}
+        %p.card-text #{restaurant_new.content}
+        %a.card-link{:href => "#{restaurant_new.shopurl}"} 店舗
+        %a.card-link{:href => "#{restaurant_new.tabelog}"} 食べログ

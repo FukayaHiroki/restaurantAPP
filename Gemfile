@@ -49,7 +49,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry-rails'
-  gem 'better_errors'
 end
 
 group :test do
@@ -67,3 +66,5 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 gem 'active_hash'
 gem 'devise'
+gem 'carrierwave'
+gem 'mini_magick'
