@@ -19,5 +19,10 @@
           = image.file_field :url, type: "file", id: "upload-image", class: "upload-image"
       -# = image.file_field :url, class: 'form-control' 
       -# = image.hidden_field :id, value: image.object.id 
+  .form-group
+    %label ジャンル
+    = f.fields_for :detail do |detail|
+      = detail.label :genre 
+      = detail.collection_select :genre, Genre.all, :id, :name, prompt: "--", class: "form-control"
   .actions
     = f.submit "登録する", class: 'btn-dark'

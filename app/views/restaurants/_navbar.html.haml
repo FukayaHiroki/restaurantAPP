@@ -4,6 +4,9 @@
     %span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse
     %ul.navbar-nav.mr-auto
+      %li.nav-item
+        = link_to serch_restaurants_path, class: "nav-link" do
+          検索
       
       - if user_signed_in?
         %li.nav-item
@@ -18,5 +21,5 @@
             ログイン
 
     %form.form-inline.my-2.my-lg-0
-      %input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "text"}/
-      %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} Search
+      %input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "レストラン名", :type => "text"}/
+      %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} 検索する
