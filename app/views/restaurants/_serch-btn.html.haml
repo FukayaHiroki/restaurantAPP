@@ -1,9 +1,10 @@
 .container.text-center.border.mt-4
-  %p.disply-1 ジャンル
-  .btn-group.btn-group-lg{"aria-label" => "Basic example", :role => "group"}
-    - Genre.all.each do |genre|
-      %button.btn.btn-secondary{type: "button", value: genre.id} #{genre.name}
-  %h1.disply-5 利用シーン
-  .btn-group.btn-group-lg{"aria-label" => "Basic example", :role => "group"}
-    - Scene.all.each do |scene|
-      %button.btn.btn-secondary{type: "button", value: scene.id} #{scene.name}
+  -# %p.disply-1 ジャンル
+  -# .btn-group.btn-group-lg{"aria-label" => "Basic example", :role => "group"}
+  -#   - Genre.all.each do |genre|
+  -#     %button.btn.btn-secondary.btn-genre{type: "button", value: genre.id} #{genre.name}
+  -# %h1.disply-5 利用シーン
+  -# .btn-group.btn-group-lg{"aria-label" => "Basic example", :role => "group"}
+  -#   - Scene.all.each do |scene|
+  -#     %button.btn.btn-secondary.btn-scene{type: "button", value: scene.id, autocomplete: "off"} #{scene.name}
+  %input.form-control#serchbox{placeholder: "Default input", type: "text"}
