@@ -4,11 +4,15 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    
+    @restaurant = Restaurant.find_by(params[:id])
   end
 
   def serch
-
+    @restaurants = Restaurant.where('name LIKE(?)', "%#{params[:name]}%")
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def create
