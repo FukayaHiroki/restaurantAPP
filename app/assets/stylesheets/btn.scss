@@ -1,8 +1,10 @@
+// カルーセル
 #sizefix{
   width: 900px;
   height: 400px;
   object-fit: cover;
 }
+// indexの検索ボタン
 .btn-pink-moon {
   background: #8a0053;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #fc6767, #ec008c);  /* Chrome 10-25, Safari 5.1-6 */
@@ -10,4 +12,15 @@
   color: #fff;
   border: 3px solid #eee;
   font-size: 20px;
+}
+
+// 文字サイズの変更(効かない所があるので。のち修正)
+#font-size-20{
+  font-size: 2rem;
+  line-height: 4rem;
+}
+
+#font-size-15{
+  font-size: 1.5rem;
+  line-height: 4rem;
 }

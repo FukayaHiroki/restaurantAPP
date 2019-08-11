@@ -1,11 +1,13 @@
 .card.w-75.p-2.mx-auto
-  .card-body
-    %h2.card-title.text-center 
-      -# = @restaurant.name
-    = image_tag "kitchen-731351_1280.jpg", class: "card-img-top"
-    -# %p.card-text ジャンル：#{@restaurant.detail.genre.name}
-    -# %p.card-text オススメシーン: #{@restaurant.detail.scene_id}
-    -# %p.card-text ドレスコード: #{@restaurant.detail.atmosphere_id}
-    -# %p.card-text オススメの文章をかく#{@restaurant.content}
-    -# %a{:href => "#!"} リンク→#{@restaurant.tabelog}
-    -# %a{:href => "#!"} リンク→#{@restaurant.shopurl}
+  .card-body.px-5
+    %h1.display-2.text-center
+      = @restaurant.name
+    .text-center
+      = image_tag "#{@restaurant.images.first.url}"
+    .contents-box.px-5
+      %h3#font-size-20.border ジャンル: #{Genre.find_by(id: @restaurant.detail.genre).name}
+      %h3#font-size-20.border シーン: #{Scene.find_by(id: @restaurant.detail.scene).name}
+      %h3#font-size-15.border 説明: #{@restaurant.content}
+      %h3.border
+        %a#font-size-20{:href => "#!"} リンク→#{@restaurant.tabelog}
+        %a#font-size-20{:href => "#!"} リンク→#{@restaurant.shopurl}
