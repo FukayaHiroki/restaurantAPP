@@ -4,9 +4,9 @@
     .card
       .card-body
         = link_to restaurant_path(restaurant.id) do
-          = image_tag "restaurant-449952_1280.jpg", class: "card-img-top", style: "heigth: 10rem"
-        %h4.card-title #{restaurant.name}
-        %p.card-text #{restaurant.content}
+          = image_tag "#{restaurant.images.first.url}", class: "card-img-top", id: "card-image-size"
+        %h4.card-title.display-4 #{restaurant.name}
+        -# %p.card-text #{restaurant.content}
         %a.card-link{:href => "#{restaurant.shopurl}"} 店舗
         %a.card-link{:href => "#{restaurant.tabelog}"} 食べログ
           
@@ -15,8 +15,9 @@
   - @restaurants.order(created_at: :desc).limit(3).each do |restaurant_new|
     .card
       .card-body
-        = image_tag "restaurant-449952_1280.jpg", class: "card-img-top", style: "heigth: 10rem"
-        %h4.card-title #{restaurant_new.name}
-        %p.card-text #{restaurant_new.content}
+        = link_to restaurant_path(restaurant_new.id) do
+          = image_tag "#{restaurant_new.images.first.url}", class: "card-img-top", id: "card-image-size"
+        %h4.card-title.display-4 #{restaurant_new.name}
+        -# %p.card-text #{restaurant_new.content}
         %a.card-link{:href => "#{restaurant_new.shopurl}"} 店舗
         %a.card-link{:href => "#{restaurant_new.tabelog}"} 食べログ
