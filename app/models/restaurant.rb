@@ -4,4 +4,7 @@ class Restaurant < ApplicationRecord
   
   has_one :detail, dependent: :destroy
   accepts_nested_attributes_for :detail, allow_destroy: true
+
+  has_many :comments, dependent: :destroy
+  accepts_nested_attributes_for :detail, allow_destroy: true
 end

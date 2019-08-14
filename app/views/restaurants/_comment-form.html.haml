@@ -1,34 +1,10 @@
 .container
-  = form_with url: restaurants_path, method: :POST, model: @restaurant do |f|
+  = form_with url: restaurant_comments_path(@restaurant.id), method: :POST, model: @comment do |f|
     .form-group
       %label 名前
-      = f.text_field :name, class: 'form-control'
+      = f.text_field :name, value: "名無しのグルメ" , class: 'form-control'
     .form-group
-      %label 食べログ
-      = f.text_field :tabelog, class: 'form-control'
-    .form-group
-      %label ショップURL
-      = f.text_field :shopurl, class: 'form-control'
-    .form-group
-      %label 説明
+      %label 感想
       = f.text_field :content, class: 'form-control'
-    .form-group
-      %label 画像
-      = f.fields_for :images, @restaurant.images do |image|
-        = image.label :url, for: "upload-image" do
-          .sell_upload__area
-            = image.file_field :url, type: "file", id: "upload-image", class: "upload-image"
-        -# = image.file_field :url, class: 'form-control' 
-        -# = image.hidden_field :id, value: image.object.id 
-    .form-group
-      %label ジャンル
-      = f.fields_for :detail do |detail|
-        - detail.label :genre 
-        = detail.collection_select :genre, Genre.all, :id, :name, prompt: "--", class: "form-control"
-    .form-group
-      %label 利用シーン
-      = f.fields_for :detail do |detail|
-        - detail.label :scene 
-        = detail.collection_select :scene, Scene.all, :id, :name, prompt: "--", class: "form-control"
     .actions
       = f.submit "登録する", class: 'btn btn-dark'
