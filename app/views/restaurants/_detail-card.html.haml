@@ -11,10 +11,5 @@
       %h3.border
         %a.card-link.btn.btn-danger{:href => "#{@restaurant.tabelog}"} 食べログ
         %a.card-link.btn.btn-primary{:href => "#{@restaurant.shopurl}"} ショップURL
-.card.w-75.p-2.mx-auto.mt-2
-  .card-body
-    %h4.card-title Card title
-    %p.card-text
-      Some quick example text to build on the card title
-      and make up the bulk of the card's content.
-    %a.btn.btn-primary{:href => "#!"} Go somewhere
+= render 'comment-form'
+= render 'comment-card'
