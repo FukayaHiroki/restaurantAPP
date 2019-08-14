@@ -9,5 +9,5 @@
       %h3#font-size-20.border シーン: #{Scene.find_by(id: @restaurant.detail.scene).name}
       %h3#font-size-15.border 説明: #{@restaurant.content}
       %h3.border
-        %a#font-size-20{:href => "#!"} リンク→#{@restaurant.tabelog}
-        %a#font-size-20{:href => "#!"} リンク→#{@restaurant.shopurl}
+        %a.card-link.btn.btn-danger{:href => "#{@restaurant.tabelog}"} 食べログ
+        %a.card-link.btn.btn-primary{:href => "#{@restaurant.shopurl}"} ショップURL
