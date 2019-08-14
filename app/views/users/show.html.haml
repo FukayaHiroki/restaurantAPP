@@ -1,1 +1,12 @@
-sdf
+=render partial: 'restaurants/navbar'
+.container
+  .card.col-6.mx-auto
+    %ul.list-group.list-group-flush.text-center
+      %li.list-group-item 
+        = link_to destroy_user_session_path, method: :DELETE, class: "nav-link" do 
+          ログアウト 
+      %li.list-group-item
+        = link_to new_restaurant_path, class: "nav-link" do 
+          投稿する
+      %li.list-group-item Vestibulum at eros
+=render partial: 'restaurants/footer'

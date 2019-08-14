@@ -1,4 +1,4 @@
-.card.w-75.p-2.mx-auto
+.card.w-75.p-2.mx-auto.mb-5
   .card-body.px-5
     %h1.display-2.text-center
       = @restaurant.name
@@ -9,5 +9,12 @@
       %h3#font-size-20.border シーン: #{Scene.find_by(id: @restaurant.detail.scene).name}
       %h3#font-size-15.border 説明: #{@restaurant.content}
       %h3.border
-        %a#font-size-20{:href => "#!"} リンク→#{@restaurant.tabelog}
-        %a#font-size-20{:href => "#!"} リンク→#{@restaurant.shopurl}
+        %a.card-link.btn.btn-danger{:href => "#{@restaurant.tabelog}"} 食べログ
+        %a.card-link.btn.btn-primary{:href => "#{@restaurant.shopurl}"} ショップURL
+.card.w-75.p-2.mx-auto.mt-2
+  .card-body
+    %h4.card-title Card title
+    %p.card-text
+      Some quick example text to build on the card title
+      and make up the bulk of the card's content.
+    %a.btn.btn-primary{:href => "#!"} Go somewhere

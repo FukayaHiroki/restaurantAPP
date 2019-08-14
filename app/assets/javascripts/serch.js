@@ -6,7 +6,6 @@ $(document).on('turbolinks:load', function(){
       var html = `<div class="card text-center">
                     <div class="card-body>
                       <h2 class="card-title"> ${restaurant.name} </h2> 
-                      <p class="card-text">${restaurant.content}</p>
                       <a href= "${restaurant.id}", class="btn btn-danger">詳細ページに行く</a>
                     </div>
                   </div>`
