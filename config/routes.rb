@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'restaurants#index'
   resources :users, only: [:index, :show]
-  resources :restaurants, only: [:index, :show, :create, :new, :destroy] do
+  resources :restaurants, only: [:index, :show, :create, :new, :destroy, :edit] do
     collection do
       get 'serch'
     end
