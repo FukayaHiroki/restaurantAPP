@@ -1,0 +1,9 @@
+.modal.fade.bd-example-modal-lg{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog.modal-lg
+    .modal-content
+      .container.p-3.text-center
+        %h3#font-size-15.p-2 ログアウトしますか？
+        %button.btn.btn-primary.text-white.m-3{type: "submit"} 
+          = link_to destroy_user_session_path, method: :DELETE do 
+            ログアウト
+        %button.btn.btn-secondary.m-3{"data-dismiss" => "modal", type: "button"} 閉じる
