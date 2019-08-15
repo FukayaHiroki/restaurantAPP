@@ -13,13 +13,12 @@
 
       %li.list-group-item
         .btn.btn-success.col
-          = link_to new_restaurant_path do 
+          = link_to user_path do 
             投稿した一覧、編集、削除
 
       %li.list-group-item
         .btn.btn-info.col
-          = link_to user_registration_path, method: :PATCH
-           do 
+          = link_to user_registration_path, method: :PATCH do 
             ユーザー情報の変更、削除
 
 =render partial: 'restaurants/footer'
