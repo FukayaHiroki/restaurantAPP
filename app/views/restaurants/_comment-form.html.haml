@@ -1,0 +1,10 @@
+.container
+  = form_with url: restaurant_comments_path(@restaurant.id), method: :POST, model: @restaurant.comments do |f|
+    .form-group
+      %label 名前
+      = f.text_field :name, value: "名無しのグルメ" , class: 'form-control'
+    .form-group
+      %label 感想
+      = f.text_area :content, class: 'form-control'
+    .actions
+      = f.submit "登録する", class: 'btn btn-dark'

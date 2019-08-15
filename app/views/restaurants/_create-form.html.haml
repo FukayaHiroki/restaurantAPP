@@ -11,7 +11,7 @@
       = f.text_field :shopurl, class: 'form-control'
     .form-group
       %label 説明
-      = f.text_field :content, class: 'form-control'
+      = f.text_area :content, class: 'form-control'
     .form-group
       %label 画像
       = f.fields_for :images, @restaurant.images do |image|
