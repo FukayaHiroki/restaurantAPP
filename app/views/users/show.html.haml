@@ -2,11 +2,25 @@
 .container
   .card.col-6.mx-auto
     %ul.list-group.list-group-flush.text-center
-      %li.list-group-item 
-        = link_to destroy_user_session_path, method: :DELETE, class: "nav-link" do 
-          ログアウト 
       %li.list-group-item
-        = link_to new_restaurant_path, class: "nav-link" do 
-          投稿する
-      %li.list-group-item Vestibulum at eros
+        .btn.btn-primary.col
+          = link_to new_restaurant_path do 
+            投稿する
+
+      %li.list-group-item 
+        %button.col.btn.btn-danger{"data-target" => ".bd-example-modal-lg", "data-toggle" => "modal"}
+          ログアウト
+
+      %li.list-group-item
+        .btn.btn-success.col
+          = link_to new_restaurant_path do 
+            投稿した一覧、編集、削除
+
+      %li.list-group-item
+        .btn.btn-info.col
+          = link_to user_registration_path, method: :PATCH
+           do 
+            ユーザー情報の変更、削除
+
 =render partial: 'restaurants/footer'
+=render 'modal'
