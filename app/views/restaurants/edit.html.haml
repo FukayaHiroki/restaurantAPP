@@ -1,0 +1,36 @@
+= render 'navbar'
+.container
+  = form_with method: :PATCH, model: @restaurant do |f|
+    .form-group
+      %label 名前
+      = f.text_field :name, class: 'form-control'
+    .form-group
+      %label 食べログ
+      = f.text_field :tabelog, class: 'form-control'
+    .form-group
+      %label ショップURL
+      = f.text_field :shopurl, class: 'form-control'
+    .form-group
+      %label 説明
+      = f.text_area :content, class: 'form-control'
+    .form-group
+      %label 画像
+      = f.fields_for :images, @restaurant.images do |image|
+        = image.label :url, for: "upload-image" do
+          .sell_upload__area
+            = image.file_field :url, type: "file", id: "upload-image", class: "upload-image", value: @restaurant.images
+        -# = image.file_field :url, class: 'form-control' 
+        -# = image.hidden_field :id, value: image.object.id 
+    .form-group
+      %label ジャンル
+      = f.fields_for :detail do |detail|
+        - detail.label :genre 
+        = detail.collection_select :genre, Genre.all, :id, :name, prompt: "--", class: "form-control"
+    .form-group
+      %label 利用シーン
+      = f.fields_for :detail do |detail|
+        - detail.label :scene 
+        = detail.collection_select :scene, Scene.all, :id, :name, prompt: "--", class: "form-control"
+    .actions.pb-5
+      = f.submit "登録する", class: 'btn btn-dark'
+=render 'footer'

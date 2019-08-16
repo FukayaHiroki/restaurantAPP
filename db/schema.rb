@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_14_123747) do
+ActiveRecord::Schema.define(version: 2019_08_15_063205) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -46,7 +46,9 @@ ActiveRecord::Schema.define(version: 2019_08_14_123747) do
     t.string "list_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["list_id"], name: "index_products_on_user_id"
+    t.index ["user_id"], name: "index_restaurants_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -64,4 +66,5 @@ ActiveRecord::Schema.define(version: 2019_08_14_123747) do
   end
 
   add_foreign_key "comments", "restaurants"
+  add_foreign_key "restaurants", "users"
 end
