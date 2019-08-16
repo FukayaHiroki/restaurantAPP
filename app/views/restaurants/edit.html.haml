@@ -1,5 +1,6 @@
+= render 'navbar'
 .container
-  = form_with url: restaurants_path, method: :POST, model: @restaurant do |f|
+  = form_with method: :PATCH, model: @restaurant do |f|
     .form-group
       %label 名前
       = f.text_field :name, class: 'form-control'
@@ -30,5 +31,6 @@
       = f.fields_for :detail do |detail|
         - detail.label :scene 
         = detail.collection_select :scene, Scene.all, :id, :name, prompt: "--", class: "form-control"
-    .actions
+    .actions.pb-5
       = f.submit "登録する", class: 'btn btn-dark'
+=render 'footer'

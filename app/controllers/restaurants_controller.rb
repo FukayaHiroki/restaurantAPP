@@ -33,7 +33,10 @@ class RestaurantsController < ApplicationController
   def edit
     @restaurant = Restaurant.find(params[:id])
   end
-
+  
+  def update
+    redirect_to root_path if @restaurant.update(restaurant_params)
+  end
   private
   def restaurant_params
     params.require(:restaurant).permit(:name, :tabelog, :shopurl, :content, :detail, images_attributes: [:url], detail_attributes: [:genre, :scene]).merge(user_id: current_user.id)
