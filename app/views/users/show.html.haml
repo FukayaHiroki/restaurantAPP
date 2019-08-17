@@ -1,24 +1,27 @@
+= render partial: 'restaurants/navbar'
 .container
-  - current_user.restaurants.each do |restaurant|
-    .card
-      .card.text-center
-        .card-body
-          %h2.card-title.display-4 #{restaurant.name}
-          .col
-            .btn.btn-primary.col-5
-              =link_to restaurant_path(restaurant.id) do
-                詳細ページ
-            .btn.btn-info.col-5
-              =link_to edit_restaurant_path(restaurant.id) do
-                編集する
-            -# .btn.btn-danger.col-3{"data-target" => ".bd-example-modal-lg", "data-toggle" => "modal", value: restaurant.id}
-            -#   削除する
-            -# .modal.fade.bd-example-modal-lg{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", :role => "dialog", :tabindex => "-1"}
-            -#   .modal-dialog.modal-lg
-            -#     .modal-content
-            -#       .container.p-3.text-center
-            -#         %h3#font-size-15.p-2 本当に投稿を削除しますか？
-            -#         %button.btn.btn-primary.text-white.m-3{type: "submit"} 
-            -#           = link_to restaurant_path(restaurant.id), method: :DELETE do 
-            -#             削除する
-            -#         %button.btn.btn-secondary.m-3{"data-dismiss" => "modal", type: "button"} 閉じる
+  .card.text-center.m-2
+    .card-body
+      -if current_user.restaurants.empty?
+        %h2.card-title.display-4 現在、投稿はありません
+      - current_user.restaurants.each do |restaurant|
+        %h2.card-title.display-4 #{restaurant.name}
+        .col
+          .btn.btn-primary.col-5
+            =link_to restaurant_path(restaurant.id) do
+              詳細ページ
+          .btn.btn-info.col-5
+            =link_to edit_restaurant_path(restaurant.id) do
+              編集する
+          -# .btn.btn-danger.col-3{"data-target" => ".bd-example-modal-lg", "data-toggle" => "modal", value: restaurant.id}
+          -#   削除する
+          -# .modal.fade.bd-example-modal-lg{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", :role => "dialog", :tabindex => "-1"}
+          -#   .modal-dialog.modal-lg
+          -#     .modal-content
+          -#       .container.p-3.text-center
+          -#         %h3#font-size-15.p-2 本当に投稿を削除しますか？
+          -#         %button.btn.btn-primary.text-white.m-3{type: "submit"} 
+          -#           = link_to restaurant_path(restaurant.id), method: :DELETE do 
+          -#             削除する
+          -#         %button.btn.btn-secondary.m-3{"data-dismiss" => "modal", type: "button"} 閉じる
+= render partial: 'restaurants/footer'
