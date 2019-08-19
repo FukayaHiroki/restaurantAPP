@@ -1,4 +1,4 @@
-.container
+.container.col-6
   = form_with url: restaurant_comments_path(@restaurant.id), method: :POST, model: @restaurant.comments do |f|
     .form-group
       %label 名前

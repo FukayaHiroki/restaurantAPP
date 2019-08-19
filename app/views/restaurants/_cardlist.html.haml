@@ -1,23 +1,23 @@
-%h2.text-center あなたにオススメのレストラン
+%h2.text-center.display-4 あなたにオススメのレストラン
 .card-group
   - @restaurants.order("RAND()").limit(3).each do |restaurant|
     .card
       .card-body
         = link_to restaurant_path(restaurant.id) do
           = image_tag "#{restaurant.images.first.url}", class: "card-img-top", id: "card-image-size"
-        %h4.card-title.display-4 #{restaurant.name}
+        %h4.card-title#font-size-15.text-center #{restaurant.name}
         -# %p.card-text #{restaurant.content}
         %a.card-link{:href => "#{restaurant.shopurl}"} 店舗
         %a.card-link{:href => "#{restaurant.tabelog}"} 食べログ
           
-%h2.text-center 最新の投稿
+%h2.text-center.display-4 最新の投稿
 .card-group
   - @restaurants.order(created_at: :desc).limit(3).each do |restaurant_new|
     .card
       .card-body
         = link_to restaurant_path(restaurant_new.id) do
           = image_tag "#{restaurant_new.images.first.url}", class: "card-img-top", id: "card-image-size"
-        %h4.card-title.display-4 #{restaurant_new.name}
+        %h4.card-title#font-size-15.text-center #{restaurant_new.name}
         -# %p.card-text #{restaurant_new.content}
         %a.card-link{:href => "#{restaurant_new.shopurl}"} 店舗
         %a.card-link{:href => "#{restaurant_new.tabelog}"} 食べログ

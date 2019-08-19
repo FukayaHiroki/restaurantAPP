@@ -1,5 +1,5 @@
 - @restaurant.comments.each do |comment|
-  .card.w-50.p-2.mx-auto.mt-2
+  .card.p-2.mx-auto.mt-2.w-50
     .card-body
       %p.card-text #{comment.created_at.in_time_zone('Tokyo').strftime("%Y/%m/%d %H:%M")}
       %p.card-text #{comment.name}
