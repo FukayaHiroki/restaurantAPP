@@ -54,6 +54,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry-rails'
+  gem 'bullet'
 end
 
 group :test do
@@ -79,3 +80,4 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
 gem 'kaminari'
+gem 'ransack'

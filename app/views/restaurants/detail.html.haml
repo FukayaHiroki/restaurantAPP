@@ -1,0 +1,7 @@
+= render 'navbar'
+-@details.each do |detail|
+  .card.text-center
+    .card-body
+      %h2.card-text #{detail.restaurant.name}
+
+= render 'footer'
