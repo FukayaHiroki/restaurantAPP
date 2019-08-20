@@ -62,6 +62,9 @@ GEM
       popper_js (>= 1.12.9, < 2)
       sass (>= 3.5.2)
     builder (3.2.3)
+    bullet (6.0.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     byebug (11.0.1)
     capistrano (3.11.0)
       airbrussh (>= 1.0.0)
@@ -202,6 +205,8 @@ GEM
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
+    polyamorous (2.3.0)
+      activerecord (>= 5.0)
     popper_js (1.14.5)
     pry (0.12.2)
       coderay (~> 1.1.0)
@@ -239,6 +244,12 @@ GEM
       thor (>= 0.19.0, < 2.0)
     raindrops (0.19.0)
     rake (12.3.3)
+    ransack (2.3.0)
+      actionpack (>= 5.0)
+      activerecord (>= 5.0)
+      activesupport (>= 5.0)
+      i18n
+      polyamorous (= 2.3.0)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
@@ -293,6 +304,7 @@ GEM
     unicorn (5.4.1)
       kgio (~> 2.6)
       raindrops (~> 0.7)
+    uniform_notifier (1.12.1)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (3.7.0)
@@ -313,6 +325,7 @@ DEPENDENCIES
   active_hash
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.1.1)
+  bullet
   byebug
   capistrano
   capistrano-bundler
@@ -335,6 +348,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.11)
   rails (~> 5.2.3)
+  ransack
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
