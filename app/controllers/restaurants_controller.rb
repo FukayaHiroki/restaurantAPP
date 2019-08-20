@@ -2,6 +2,7 @@ class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:index, :serch]
   def index
     @q = Restaurant.ransack(params[:q])
+    @detail = Detail.all
     @restaurants = @q.result(distinct: true)
   end
 
@@ -41,8 +42,7 @@ class RestaurantsController < ApplicationController
   end
 
   def detail
-    @q = Restaurant.search(search_params)
-    @restaurants = @q.result(distinct: true)
+    @details = Detail.ransack(search_params).result(distinct: true).includes(:restaurant)
   end
 
   private
@@ -51,7 +51,7 @@ class RestaurantsController < ApplicationController
   end
 
   def search_params
-    params.require(:q).permit!
+    params.require(:q).require(:detail).permit(:genre_eq ,:scene_eq)
   end
 
   def set_restaurant

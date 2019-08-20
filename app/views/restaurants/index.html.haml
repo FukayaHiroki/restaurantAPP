@@ -2,17 +2,17 @@
 = render 'carousel'
 = render 'main-content'
 .conteiner
-  = form_with url: detail_restaurants_path, method: :GET do |f|
+  = search_form_for(@q, url: detail_restaurants_path) do |f|
     .form-group
       %label ジャンル
       = f.fields_for :detail do |detail|
-        - detail.label :genre 
-        = detail.collection_select :genre, Genre.all, :id, :name, prompt: "--", class: "form-control"
+        - detail.label :genre_eq 
+        = detail.collection_select :genre_eq, Genre.all, :id, :name, prompt: "--", class: "form-control"
     .form-group
       %label 利用シーン
       = f.fields_for :detail do |detail|
-        - detail.label :scene 
-        = detail.collection_select :scene, Scene.all, :id, :name, prompt: "--", class: "form-control"
+        - detail.label :scene_eq 
+        = detail.collection_select :scene_eq, Scene.all, :id, :name, prompt: "--", class: "form-control"
     .actions
       = f.submit "検索する", class: 'btn btn-dark'
 = render 'modal'
