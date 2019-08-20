@@ -1,7 +1,9 @@
 = render 'navbar'
--@details.each do |detail|
-  .card.text-center
-    .card-body
-      %h2.card-text #{detail.restaurant.name}
-
+.container
+  -@details.each do |detail|
+    .card.text-center
+      .card-body
+        %h2.card-text #{detail.restaurant.name}
+        .btn.btn-dengar
+          %a.btn.btn-danger{href: detail.restaurant.id} 詳細ページへ
 = render 'footer'

@@ -1,20 +1,22 @@
 = render 'navbar'
 = render 'carousel'
 = render 'main-content'
-.conteiner
-  = search_form_for(@q, url: detail_restaurants_path) do |f|
-    .form-group
-      %label ジャンル
-      = f.fields_for :detail do |detail|
-        - detail.label :genre_eq 
-        = detail.collection_select :genre_eq, Genre.all, :id, :name, prompt: "--", class: "form-control"
-    .form-group
-      %label 利用シーン
-      = f.fields_for :detail do |detail|
-        - detail.label :scene_eq 
-        = detail.collection_select :scene_eq, Scene.all, :id, :name, prompt: "--", class: "form-control"
-    .actions
-      = f.submit "検索する", class: 'btn btn-dark'
+.jumbotron
+  .container.text-center
+    %p#font-size-15 レストランのジャンルと利用シーンでの絞り込みも可能です
+    = search_form_for(@q, url: detail_restaurants_path, class: 'form-inline justify-content-center', id: 'font-size-15') do |f|
+      .form-group
+        %label ジャンル
+        = f.fields_for :detail do |detail|
+          - detail.label :genre_eq 
+          = detail.collection_select :genre_eq, Genre.all, :id, :name, prompt: "--", class: "form-control"
+      .form-group
+        %label 利用シーン
+        = f.fields_for :detail do |detail|
+          - detail.label :scene_eq 
+          = detail.collection_select :scene_eq, Scene.all, :id, :name, prompt: "--", class: "form-control"
+      .actions
+        = f.submit "検索する", class: 'btn btn-dark'
 = render 'modal'
 = render 'cardlist'
 = render 'footer'
