@@ -1,6 +1,8 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:index, :serch]
   def index
+    @q = Restaurant.ransack(params[:q])
+    @restaurants = @q.result(distinct: true)
   end
 
   def show
@@ -37,9 +39,19 @@ class RestaurantsController < ApplicationController
   def update
     redirect_to root_path if @restaurant.update(restaurant_params)
   end
+
+  def detail
+    @q = Restaurant.search(search_params)
+    @restaurants = @q.result(distinct: true)
+  end
+
   private
   def restaurant_params
     params.require(:restaurant).permit(:name, :tabelog, :shopurl, :content, :detail, images_attributes: [:url], detail_attributes: [:genre, :scene]).merge(user_id: current_user.id)
+  end
+
+  def search_params
+    params.require(:q).permit!
   end
 
   def set_restaurant
