@@ -6,8 +6,10 @@
     %ul.navbar-nav.mr-auto
       %li.nav-item
         = link_to serch_restaurants_path, class: "nav-link" do
-          検索
-      
+          名前で検索
+      %li.nav-item
+        = link_to detail_restaurants_path, class: "nav-link" do
+          ジャンルで検索
       - if user_signed_in?
         %li.nav-item
           = link_to new_restaurant_path, class: "nav-link" do 

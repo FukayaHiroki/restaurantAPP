@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :restaurants, only: [:index, :show, :create, :new, :destroy, :edit, :update] do
     collection do
       get 'serch'
+      get 'detail'
     end
     resources :comments, only: [:create] 
   end
