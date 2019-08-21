@@ -5,7 +5,7 @@
       .card-body
         = link_to restaurant_path(restaurant.id) do
           = image_tag "#{restaurant.images.first.url}", class: "card-img-top", id: "card-image-size"
-        %h4.card-title.display-4 #{restaurant.name}
+        %h4.card-title#font-size-15 #{restaurant.name}
         -# %p.card-text #{restaurant.content}
         %a.card-link{:href => "#{restaurant.shopurl}"} 店舗
         %a.card-link{:href => "#{restaurant.tabelog}"} 食べログ
@@ -17,7 +17,7 @@
       .card-body
         = link_to restaurant_path(restaurant_new.id) do
           = image_tag "#{restaurant_new.images.first.url}", class: "card-img-top", id: "card-image-size"
-        %h4.card-title.display-4 #{restaurant_new.name}
+        %h4.card-title#font-size-15 #{restaurant_new.name}
         -# %p.card-text #{restaurant_new.content}
         %a.card-link{:href => "#{restaurant_new.shopurl}"} 店舗
         %a.card-link{:href => "#{restaurant_new.tabelog}"} 食べログ
