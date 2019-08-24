@@ -9,5 +9,5 @@ Rails.application.routes.draw do
     end
     resources :comments, only: [:create] 
   end
-  resources :favorites, only: [:create, :destroy]
+  resources :favorites, only: [:create, :destroy, :index]
 end
