@@ -8,5 +8,6 @@ class Restaurant < ApplicationRecord
   has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :detail, allow_destroy: true
 
-  belongs_to :user
+  belongs_to :user, through: :faborites
+  has_many :favorites, dependent: :destroy
 end
