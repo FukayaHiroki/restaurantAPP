@@ -6,7 +6,4 @@ class UsersController < ApplicationController
   def show
     @restaurants = current_user.restaurants.page(params[:page]).per(5)
   end
-
-  def update
-  end
 end
