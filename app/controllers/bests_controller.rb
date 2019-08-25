@@ -13,6 +13,6 @@ class BestsController < ApplicationController
   def edit
     current_user.best.destroy
     @best = Best.new(restaurant_id: params[:id], user_id: current_user.id)
-    redirect_to  restaurant_path(@best.restaurant_id) if @best.save
+    redirect_to restaurant_path(@best.restaurant_id) if @best.save
   end
 end
