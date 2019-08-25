@@ -21,7 +21,14 @@
             =link_to favorite_path(@restaurant.id), method: :DELETE, class: "card-link" do
               ブックマークから削除
         .btn.btn-info.mx-3
-          = link_to users_path(current_user.id), class: "card-link" do
-            BESTに登録する
+          - if current_user.best.nil?
+            = link_to bests_path(@restaurant), method: :POST, class: "card-link" do
+              NO1レストランに登録
+          - elsif @restaurant.id == current_user.best.restaurant_id
+            =link_to best_path(@restaurant.id), method: :DELETE, class: "card-link" do
+              NO1レストランから削除
+          - else
+            = link_to edit_best_path(@restaurant), class: "card-link" do
+              %p NO1レストランを変更する
 = render 'comment-card'
 = render 'comment-form'
