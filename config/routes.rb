@@ -10,4 +10,5 @@ Rails.application.routes.draw do
     resources :comments, only: [:create] 
   end
   resources :favorites, only: [:create, :destroy, :index]
+  resources :bests, only: [:create, :destroy]
 end

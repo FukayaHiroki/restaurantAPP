@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :restaurants
   has_many :favorites
+  has_one  :best
 end
