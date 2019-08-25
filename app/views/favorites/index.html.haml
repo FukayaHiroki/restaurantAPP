@@ -1,3 +1,8 @@
 =render partial: 'restaurants/navbar'
-
+.container
+  -if current_user.favorites.empty?
+    .card.text-center.m-2
+      .card-body
+        %h2.card-title.display-4 現在、お気に入りはありません
+  = favorite_lists
 =render partial: 'restaurants/footer'
