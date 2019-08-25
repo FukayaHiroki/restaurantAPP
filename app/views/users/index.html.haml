@@ -1,5 +1,17 @@
 =render partial: 'restaurants/navbar'
 .container
+  - if best_restaurant.present?
+    .card.text-center.m-2
+      .card-body
+        %h2.card-title.display-4 #{best_restaurant.name}
+        .col
+          .btn.btn-primary.col-5
+            =link_to restaurant_path(best_restaurant.id) do
+              詳細ページ
+  - else
+    #font-size-20.text-center
+      %p 現在、NO1レストラは登録されていません。
+.container
   .card.col-6.mx-auto
     %ul.list-group.list-group-flush.text-center
       %li.list-group-item
