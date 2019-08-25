@@ -9,4 +9,6 @@ class Restaurant < ApplicationRecord
   accepts_nested_attributes_for :detail, allow_destroy: true
 
   belongs_to :user
+  has_many :favorites, dependent: :destroy
+  has_many :bests
 end

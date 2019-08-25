@@ -1,0 +1,7 @@
+.card.text-center.m-2
+  .row
+    .card-body
+      %h2.card-title.display-4 #{restaurant.name}
+      .btn.btn-primary.col-5
+        =link_to restaurant_path(restaurant.id) do
+          詳細ページ

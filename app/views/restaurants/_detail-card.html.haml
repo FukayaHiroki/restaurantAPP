@@ -10,11 +10,25 @@
       %h3#font-size-15.border シーン
       %h3#font-size-20.border #{Scene.find_by(id: @restaurant.detail.scene).name}
       %h3#font-size-15.border 説明:<br> #{sp_br @restaurant.content}
-      %h3.border
+      %h3.m-2
         %a.card-link.btn.btn-danger{:href => "#{@restaurant.tabelog}"} 食べログ
         %a.card-link.btn.btn-primary{:href => "#{@restaurant.shopurl}"} ショップURL
-        .btn.btn-dark.mx-3 
-          = link_to users_path(current_user.id), class: "nav-link" do
-            お気に入りに登録
+        .btn.btn-dark.ml-3
+          - if current_user.favorites.find_by(restaurant_id: @restaurant.id).nil?
+            = link_to favorites_path(@restaurant), method: :POST, class: "card-link" do
+              ブックマークに登録
+          - else
+            =link_to favorite_path(@restaurant.id), method: :DELETE, class: "card-link" do
+              ブックマークから削除
+        .btn.btn-info.mx-3
+          - if current_user.best.nil?
+            = link_to bests_path(@restaurant), method: :POST, class: "card-link" do
+              NO1レストランに登録
+          - elsif @restaurant.id == current_user.best.restaurant_id
+            =link_to best_path(@restaurant.id), method: :DELETE, class: "card-link" do
+              NO1レストランから削除
+          - else
+            = link_to edit_best_path(@restaurant), class: "card-link" do
+              %p NO1レストランを変更する
 = render 'comment-card'
 = render 'comment-form'

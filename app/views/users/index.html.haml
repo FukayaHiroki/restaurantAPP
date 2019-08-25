@@ -4,22 +4,23 @@
     %ul.list-group.list-group-flush.text-center
       %li.list-group-item
         .btn.btn-primary.col
-          = link_to new_restaurant_path do 
+          = link_to new_restaurant_path do
             投稿する
 
       %li.list-group-item 
         %button.col.btn.btn-danger{"data-target" => ".bd-example-modal-lg", "data-toggle" => "modal"}
           ログアウト
-
       %li.list-group-item
         .btn.btn-success.col
-          = link_to user_path(current_user.id) do 
+          = link_to user_path(current_user.id) do
             投稿した一覧、編集、削除
-
       %li.list-group-item
         .btn.btn-info.col
-          = link_to user_registration_path, method: :PATCH do 
+          = link_to user_registration_path, method: :PATCH do
             ユーザー情報の変更、削除
-
+      %li.list-group-item
+        .btn.btn-dark.col
+          = link_to favorites_path do
+            お気に入り一覧表示
 =render partial: 'restaurants/footer'
 =render 'modal'
