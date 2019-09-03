@@ -11,4 +11,7 @@ class Restaurant < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :destroy
   has_many :bests
+
+  validates :name,    length: { in: 1..75 }
+  validates :content,    length: { in: 1..2000 }
 end
