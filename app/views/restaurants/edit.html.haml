@@ -19,8 +19,6 @@
         = image.label :url, for: "upload-image" do
           .sell_upload__area
             = image.file_field :url, type: "file", id: "upload-image", class: "upload-image", value: image
-        -# = image.file_field :url, class: 'form-control' 
-        -# = image.hidden_field :id, value: image.object.id 
     .form-group
       %label ジャンル
       = f.fields_for :detail do |detail|
